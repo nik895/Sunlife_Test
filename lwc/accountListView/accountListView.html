@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Financial Services Account Listing">
+        <template if:true={accList}>
+            <div class="slds-m-around_medium">
+                <lightning-input type="Account Search" label=" Account Search" onchange={handleSearchAccount}></lightning-input>
+            </div>
+            <lightning-datatable data={accList} columns={columns} key-field="Id" draft-values={saveDraftValues}
+                hide-checkbox-column onsave={handleSave} default-sort-direction={defaultSortDirection}
+                sorted-direction={sortDirection} sorted-by={sortBy} onsort={doSorting}>
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+    </lightning-card>
+</template>
